@@ -5,11 +5,14 @@ import com.lambdaschool.school.view.CountStudentsInCourses;
 
 import java.util.ArrayList;
 
-public interface CourseService
-{
+public interface CourseService {
     ArrayList<Course> findAll();
 
     ArrayList<CountStudentsInCourses> getCountStudentsInCourse();
 
     void delete(long id);
+
+    Course findCourseById(long id);
+
+    Course save(Course course);
 }

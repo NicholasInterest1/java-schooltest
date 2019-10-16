@@ -8,54 +8,45 @@ import java.util.List;
 
 @Entity
 @Table(name = "instructor")
-public class Instructor
-{
+public class Instructor {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long instructid;
-
     private String instructname;
 
-    @OneToMany(mappedBy = "instructor")
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("instructors")
     private List<Course> courses = new ArrayList<>();
 
-    public Instructor()
-    {
+    public Instructor() {
     }
 
-    public Instructor(String instructname)
-    {
+    public Instructor(String instructname) {
         this.instructname = instructname;
     }
 
-    public long getInstructid()
-    {
+    public long getInstructid() {
         return instructid;
     }
 
-    public void setInstructid(long instructid)
-    {
+    public void setInstructid(long instructid) {
         this.instructid = instructid;
     }
 
-    public String getInstructname()
-    {
+    public String getInstructname() {
         return instructname;
     }
 
-    public void setInstructname(String instructname)
-    {
+    public void setInstructname(String instructname) {
         this.instructname = instructname;
     }
 
-    public List<Course> getCourses()
-    {
+    public List<Course> getCourses() {
         return courses;
     }
 
-    public void setCourses(List<Course> courses)
-    {
+    public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
 }
